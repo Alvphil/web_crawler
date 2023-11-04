@@ -1,0 +1,23 @@
+{
+  "name": "web_crawler",
+  "version": "1.0.0",
+  "description": "web crawler guided project with boot.dev",
+  "main": "index.js",
+  "scripts": {
+    "start": "node main.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alvphil/web_crawler.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alvphil/web_crawler/issues"
+  },
+  "homepage": "https://github.com/Alvphil/web_crawler#readme",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
