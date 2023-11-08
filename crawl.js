@@ -2,7 +2,7 @@ const { JSDOM } = require('jsdom')
 
 
 function normalizeURL(url){
-    myUrl = new URL(url);
+    const myUrl = new URL(url);
     url = String(myUrl.hostname+myUrl.pathname);
     const regex = /(.+?)\/?$/gi;
     let urlNormal = Array.from(url.matchAll(regex), m => m[1]);
@@ -33,8 +33,8 @@ function getURLsFromHTML(htmlBody, baseURL){
 }
 
 async function crawlPage(baseURL, currentURL, pages){
-    baUrl = new URL(baseURL);
-    cuUrl = new URL(currentURL);
+    const baUrl = new URL(baseURL);
+    const cuUrl = new URL(currentURL);
     if (baUrl.hostname !== cuUrl.hostname){
         //console.log(`got to the check ${baUrl.hostname} != ${cuUrl.hostname}`)
         return pages
@@ -60,11 +60,12 @@ async function crawlPage(baseURL, currentURL, pages){
         //console.log(`fetching ${currentURL}`)
     }catch(err){
         console.log(err)
-        return
+        return pages
     }
     const contentType = await webPage.headers.get("content-type")
     if (!contentType || !contentType.includes("text/html")){
         console.log(`Wrong content type.`)
+        return pages
     }
     else{
         const body = await webPage.text()
