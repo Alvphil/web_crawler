@@ -1,4 +1,5 @@
-const { normalizeURL, getURLsFromHTML, crawlPage } = require('./crawl.js')
+const { normalizeURL, crawlPage } = require('./crawl.js')
+const { printReport } = require('./report.js')
 
 
 async function main(){
@@ -16,7 +17,7 @@ async function main(){
         console.log(`normalized url: ${normalizedURL}`)
 
         pages = await crawlPage(baseURL, currentURL, pages)
-        console.log(`${JSON.stringify(pages, null, 4)}`)
+        printReport(pages)
     }
 }
 
